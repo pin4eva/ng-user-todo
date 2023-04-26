@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="todo mx-auto w-50">
+    <h1>Todo</h1>
+
+    <form class="todo-form">
+      <div class="form-group">
+        <input type="text" class="form-control">
+        <button class="btn btn-secondary">Add Todo</button>
+      </div>
+    </form>
+
+    <ul class="todo-list" *ngFor="let todo of todos">
+
+      <todo-item [todo]="todo" />
+    </ul>
+  </div>
+</div>
