@@ -10,11 +10,10 @@ import { TodoComponent } from './pages/todo/todo.component';
 import { UserComponent } from './pages/user/user.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
-import { TodoItemComponent } from './pages/todo/todo-item.component';
 
 registerLocaleData(localNG, 'ng');
 @NgModule({
-  declarations: [AppComponent, TodoComponent, TodoItemComponent, UserComponent, HeaderComponent, HomeComponent],
+  declarations: [AppComponent, TodoComponent, UserComponent, HeaderComponent, HomeComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,17 +1,26 @@
 <div class="container">
-  <div class="todo mx-auto w-50">
+  <div class="todo mx-auto">
     <h1>Todo</h1>
 
-    <form class="todo-form">
+    <form class="todo-form" #todoForm="ngForm" (ngSubmit)="onSubmit($event)">
       <div class="form-group">
-        <input type="text" class="form-control">
-        <button class="btn btn-secondary">Add Todo</button>
+        <input name="title" required type="text" [(ngModel)]="todo.title" class="form-control" />
+        <div class="d-grid mt-2">
+          <button class="btn btn-primary" [disabled]="!todoForm.valid">Add Todo</button>
+        </div>
       </div>
     </form>
 
-    <ul class="todo-list" *ngFor="let todo of todos">
+    <div class="mt-4">
+      <div class="card card-body" *ngIf="todos.length; else noUser">
+        <ul class="todo-list list-group" *ngFor="let todo of todos">
+          <li class="todo-list-item list-group-item mb-2">
+            {{ todo?.title }} <button class="btn text-danger app-icon" (click)="onDelete(todo.id)">close</button>
+          </li>
+        </ul>
+      </div>
 
-      <todo-item [todo]="todo" />
-    </ul>
+      <ng-template #noUser>No users</ng-template>
+    </div>
   </div>
 </div>
