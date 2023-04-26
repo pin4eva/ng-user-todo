@@ -9,12 +9,16 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class PostComponent implements OnInit {
   posts: Post[] = [];
-
+  currentPost: Post = {} as Post;
   constructor(private readonly postService: PostService) {}
 
-  ngOnInit(): void {
-    this.postService.getPosts().subscribe((posts) => {
-      this.posts = posts;
-    });
+  ngOnInit(): void {}
+
+  onAddPost(post: Post) {
+    this.posts.unshift(post);
+  }
+
+  setCurrentPost(post: Post) {
+    this.currentPost = post;
   }
 }

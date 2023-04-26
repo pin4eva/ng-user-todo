@@ -12,10 +12,21 @@ import { UserComponent } from './pages/user/user.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PostComponent } from './pages/post/post.component';
+import { PostFormComponent } from './components/post-form/post-form.component';
+import { TodoItemComponent } from './pages/todo/todo-item.component';
 
 registerLocaleData(localNG, 'ng');
 @NgModule({
-  declarations: [AppComponent, TodoComponent, UserComponent, HeaderComponent, HomeComponent, PostComponent],
+  declarations: [
+    AppComponent,
+    TodoComponent,
+    TodoItemComponent,
+    UserComponent,
+    HeaderComponent,
+    HomeComponent,
+    PostComponent,
+    PostFormComponent,
+  ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

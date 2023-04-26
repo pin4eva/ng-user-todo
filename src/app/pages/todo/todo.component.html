@@ -14,9 +14,7 @@
     <div class="mt-4">
       <div class="card card-body" *ngIf="todos.length; else noUser">
         <ul class="todo-list list-group" *ngFor="let todo of todos">
-          <li class="todo-list-item list-group-item mb-2">
-            {{ todo?.title }} <button class="btn text-danger app-icon" (click)="onDelete(todo.id)">close</button>
-          </li>
+          <todo-item [todo]="todo" (onDelete)="onDelete(todo.id)" />
         </ul>
       </div>
 

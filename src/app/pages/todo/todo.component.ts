@@ -28,6 +28,8 @@ export class TodoComponent implements OnInit {
   }
 
   onDelete(id: number) {
-    this.todos = this.todos.filter((todo) => todo.id !== id);
+    console.log(id);
+
+    // this.todos = this.todos.filter((todo) => todo.id !== id);
   }
 }
