@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from 'src/app/models/user.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user',
@@ -14,17 +15,18 @@ export class UserComponent implements OnInit {
   currentClasses = {};
   showUserForm = false;
   user: User = initialUser;
-  // @ViewChild('userForm') userForm: ;
+
+  constructor(private readonly userService: UserService) {}
 
   ngOnInit(): void {
-    this.users = users;
+    this.userService.getUsers().subscribe((users) => (this.users = users));
     this.setCurrentClasses();
   }
 
   addUser() {
     this.user.registeredAt = new Date();
     this.user.balance = Math.floor(Math.random() * 9000 + 1000);
-    this.users.unshift(this.user);
+    this.userService.addUser(this.user);
     this.user = {
       firstName: '',
       lastName: '',
@@ -58,30 +60,3 @@ const initialUser: User = {
   lastName: '',
   email: '',
 };
-const users: User[] = [
-  {
-    firstName: 'John',
-    lastName: 'Doe',
-    email: 'john@gmail.com',
-    balance: 100,
-    registeredAt: new Date('01/02/2018'),
-    hide: true,
-  },
-  {
-    firstName: 'Kelvin',
-    lastName: 'Johnson',
-    isActive: true,
-    balance: 100,
-    registeredAt: new Date('01/02/2018'),
-    hide: true,
-    email: 'kelvin@gmail.com',
-  },
-  {
-    firstName: 'Karen',
-    lastName: 'Williams',
-    email: 'karen@gmail.com',
-    balance: 100,
-    registeredAt: new Date('01/02/2018'),
-    hide: true,
-  },
-];
