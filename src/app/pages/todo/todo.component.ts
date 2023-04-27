@@ -8,7 +8,7 @@ import { Todo } from 'src/app/models/todo.model';
 })
 export class TodoComponent implements OnInit {
   todo: Todo = { id: 0, completed: false, title: '' };
-  todos: Todo[] = [];
+  todos: Todo[] = [{ id: 0, title: 'Demo', completed: false }];
 
   ngOnInit(): void {}
 
@@ -28,8 +28,6 @@ export class TodoComponent implements OnInit {
   }
 
   onDelete(id: number) {
-    console.log(id);
-
-    // this.todos = this.todos.filter((todo) => todo.id !== id);
+    this.todos = this.todos.filter((todo) => todo.id !== id);
   }
 }

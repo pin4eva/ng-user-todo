@@ -12,13 +12,13 @@
     </form>
 
     <div class="mt-4">
-      <div class="card card-body" *ngIf="todos.length; else noUser">
+      <div class="card card-body" *ngIf="todos.length; else noTodos">
         <ul class="todo-list list-group" *ngFor="let todo of todos">
           <todo-item [todo]="todo" (onDelete)="onDelete(todo.id)" />
         </ul>
       </div>
 
-      <ng-template #noUser>No users</ng-template>
+      <ng-template #noTodos>No Todos</ng-template>
     </div>
   </div>
 </div>
